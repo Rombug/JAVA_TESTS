@@ -4,12 +4,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Map<String,String> myMap = new HashMap<String,String>();
 
         ObjectMapper mapper = new ObjectMapper();
@@ -20,10 +21,9 @@ public class Main {
         if (!file.exists()){
             file.createNewFile();
         }
-        // write to file
+
         mapper.writeValue(file,sc);
 
-        // read from file
         User readValue = mapper.readValue(file, User.class);
         System.out.println(readValue);
         System.out.println("Iveskite varda");
