@@ -22,7 +22,7 @@ public class Main {
             file.createNewFile();
         }
 
-        mapper.writeValue(file,sc);
+        mapper.writeValue(file,myMap);
 
         User readValue = mapper.readValue(file, User.class);
         System.out.println(readValue);
